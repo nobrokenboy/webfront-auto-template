@@ -1,0 +1,144 @@
+@import "../common/variable";
+$inputHeight:40px;//32px;
+.ui-kalendar{
+  position: relative;
+  &.active{
+    .ui-kalendar-main{
+      display: block;
+    }
+  }
+  .color{
+    color: $themeColor;
+  }
+  .ui-kalendar-wrapper{
+    padding: 5px 10px 10px 5px;
+  }
+}
+.ui-kalendar-input{
+  position:relative;
+  min-width: 100px;//160px;
+  /*border: 1px solid #808080;*/
+  height: $inputHeight;
+  line-height: $inputHeight;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .icon{
+    position:absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right:10px;
+    line-height: 0;
+    background-color: #ffffff;
+    path{
+      fill: #bfbfbf;
+    }
+  }
+}
+.ui-kalendar-main{
+  display: none;
+  position: absolute;
+  margin-top: 5px;
+  width: 300px;
+  border: 1px solid $themeColor;
+  z-index: 3;
+  background-color: #ffffff;
+}
+
+.ui-kalendar-overlay{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+.ui-kalendar-ctrlbar{
+  user-select: none;
+  text-align: center;
+  background-color: $themeColor;
+  padding: 5px 5px 2px 5px;
+  //border-bottom: 15px solid lighten($themeColor,15%);
+  .ui-kalendar-mark{
+    color: #ffffff;
+    font-weight: 900;
+  }
+  &:after{
+    clear: both;
+    content: "";
+    display: block;
+  }
+  .ctrl{
+    display: block;
+    path{
+      fill: lighten($themeColor,35%);
+    }
+    &:active{
+      path{
+        fill: darken($themeColor,10%);
+      }
+    }
+  }
+  .prev{
+    float: left;
+    svg{
+      transform:rotate(180deg);
+      transform-origin: center center;
+    }
+  }
+  .next{
+    float: right;
+  }
+}
+.ui-kalendar-table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  th{
+    //border-top: 1px solid $themeColor;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 1%;
+  }
+  td{
+    text-align: center;
+    //border-top: 1px solid $sideColor;
+    width: 1%;
+    text-align: center;
+    padding: 5px;
+    a{
+      user-select:none;
+      width: 28px;
+      height: 28px;
+      line-height: 22px;
+      display: inline-block;
+      border: 4px solid #ffffff;
+      border-radius: 50%;
+      //line-height: 32px;
+      &:hover{
+        border-color: lighten($themeColor,30%);
+      }
+      &.active{
+        color: $themeColor;
+        border-color: $themeColor;
+      }
+      &.today{
+        background-color: $themeColor;
+        color: #ffffff;
+        font-weight: 600;
+        border-color: $themeColor;
+      }
+      &.include.include{
+        background-color: #ffffff;
+        color: #bfbfbf;
+        border-color: #ffffff;
+        &.today{
+          background-color: #bfbfbf;
+          border-color: #bfbfbf;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}

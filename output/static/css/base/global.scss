@@ -1,0 +1,267 @@
+/*
+* 全局样式,原子样式，即不存在依赖容器以及结构的
+*/
+*{
+  box-sizing:border-box;
+}
+html,body{
+  position:relative;
+  width:100%;
+  height:100%;
+  background:$globalBgColor;
+  font-size:$commonFontSize;
+  color:$commonFontColor;
+}
+
+a{
+  color:#2b2b2b;
+  cursor:pointer;
+  &:visited{
+    @extend a;
+  }
+}
+/*浮动*/
+.fl{
+  float:left;
+}
+.fr{
+  float:right;
+}
+/*清除浮动*/
+.clear{
+  clear:both;
+  overflow:hidden;
+  height:0;
+  font-size:0;
+}
+.clearfix{
+  *zoom:1;
+}
+.clearfix:after{
+  display:block;
+  visibility:hidden;
+  clear:both;
+  height:0;
+  font-size:0;
+  content:"";
+}
+/*文本对齐*/
+.text-left{
+  text-align:left;
+}
+.text-right{
+  text-align:right;
+}
+.text-center{
+  text-align:center;
+}
+/*表现*/
+.inline-block{
+  display:inline-block;
+}
+.block{
+  display:block;
+}
+.table-cell{
+  display:table-cell;
+}
+.flex{
+  display: -webkit-flex;
+  display: flex;
+}
+/*字体大小*/
+.f12{
+  font-size:12px;
+}
+.f14{
+  font-size:14px;
+}
+.f16{
+  font-size:16px;
+}
+.f18{
+  font-size:18px;
+}
+/*字体颜色*/
+.font-orange{
+  color:#ff8000;
+}
+.font-grey{
+  color:#686868;
+}
+.font-light-grey{
+  color:#c4c3c3;
+}
+.font-red{
+  color:#FF6262;
+}
+/*字体的粗细*/
+.font-weight-bold{
+  font-weight:bold;
+}
+/*间距*/
+.margin-left-5{
+  margin-left:5px;
+}
+.margin-left-10{
+  margin-left:10px;
+}
+.margin-left-15{
+  margin-left:15px;
+}
+.margin-left-20{
+  margin-left:20px;
+}
+.margin-right-5{
+  margin-right:5px;
+}
+.margin-right-10{
+  margin-right:10px;
+}
+.margin-right-15{
+  margin-right:15px;
+}
+.margin-right-20{
+  margin-right:20px;
+}
+.margin-top-5{
+  margin-top:5px;
+}
+.margin-top-10{
+  margin-top:10px;
+}
+.margin-top-15{
+  margin-top:15px;
+}
+.margin-top-20{
+  margin-top:20px;
+}
+
+.margin-bottom-5{
+  margin-bottom:5px;
+}
+.margin-bottom-10{
+  margin-bottom:10px;
+}
+.margin-bottom-15{
+  margin-bottom:15px;
+}
+.margin-bottom-20{
+  margin-bottom:20px;
+}
+/**/
+.padding-left-5{
+  padding-left:5px;
+}
+.padding-right-5{
+  padding-right:5px;
+}
+.padding-top-5{
+  padding-top:5px;
+}
+.padding-bottom-5{
+  padding-bottom:5px;
+}
+.padding-left-10{
+  padding-left:10px;
+}
+.padding-right-10{
+  padding-right:10px;
+}
+.padding-top-10{
+  padding-top:10px;
+}
+.padding-bottom-10{
+  padding-bottom:10px;
+}
+/*居中*/
+.v-middle{
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/*表示位置*/
+.absolute{
+  position:absolute;
+}
+.relative{
+  position:relative;
+}
+.fixed{
+  position:fixed;
+}
+.fixed-bottom{
+  position:fixed;
+  left:0;
+  bottom:0;
+}
+.v-table-middle{
+  display: table-cell;
+  vertical-align: middle;
+}
+.v-middle{
+  display: inline-block;
+  vertical-align: middle;
+}
+.v-top{
+  vertical-align:top;
+}
+.absolute-left{
+  position:absolute;
+  left:0;
+}
+/*隐藏多余的*/
+.hidden{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+.overflow-hidden{
+  overflow:hidden
+}
+.overflow-hidden-x{
+  overflow-x:hidden
+}
+.overflow-hidden-y{
+  overflow-y:hidden
+}
+/*解决vue v-show闪烁的问题*/
+[v-cloak]{
+  display:none!important;
+}
+/*按钮*/
+button{
+  border:none;
+  cursor:pointer;
+}
+button[disabled]{
+  cursor: not-allowed;
+  opacity:.5;
+}
+/*form 文本框等的*/
+input[type=text],input[type=password],select,button{
+  -webkit-appearance:none;
+  appearance:none;
+  border:none;
+  background:none;
+}
+input[type=text],input[type=password]{
+  padding-left:10px;
+  color:$commonFontColor;
+  font-size:14px;
+}
+input[type='text'],input[type='number'],select{
+  background:#fff;
+}
+input::-webkit-input-placeholder { /* WebKit browsers */
+  color:$deepGreyFontColor;
+}
+input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:$deepGreyFontColor;
+}
+input::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:$deepGreyFontColor;
+}
+input:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color:$deepGreyFontColor;
+}

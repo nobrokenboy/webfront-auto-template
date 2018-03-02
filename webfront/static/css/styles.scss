@@ -1,0 +1,30 @@
+/*--------------------------------项目的css主入口---------------------------------*/
+//variable
+@import "variables/ctx";
+@import "variables/colors";
+@import "variables/typography";
+@import "variables/object";
+//reset and base file
+@import "base/reset";
+@import "base/global";
+//iconfont
+@import "iconfonts/iconfont";
+//helpers contain mixins and functions
+@import "helpers/mixins";
+@import "helpers/functions";
+//animations 一些动画
+@import "animations/animate.min";
+@import "animations/my_animation";
+//layouts
+@import "layouts/header";
+@import "layouts/slider";
+@import "layouts/content";
+//object 一些小部件的
+@import "objects/input";
+@import "objects/button";
+//components组件
+@import "components/ui-modal";
+@import "components/ui-checkbox";
+@import "components/ui-table-sorter";
+@import "components/ui-kalendar";
+@import "components/ui-mult-select";
