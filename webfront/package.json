@@ -1,14 +1,14 @@
 {
-  "name": "webfront-auto",
+  "name": "webfront-auto-template",
   "version": "1.0.0",
   "description": "前端自动化",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "release":"fis3 release",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "webpack": "webpack -w",
-    "":""
+    "browser":"browser-sync start --proxy 127.0.0.1:8001 --port 8022 --files ../output/static/css/**/**.css,../output/static/js/**/**.js,../output/views/**/**.html"
   },
   "author": "nobrokenboy",
   "license": "ISC",
