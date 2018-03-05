@@ -87,17 +87,6 @@ module.exports={
         hints: false
     },
     plugins:[
-         new UglifyJsPlugin({
-             uglifyOptions:{
-                compress: {
-                    warnings: false
-                },
-                output: {
-                    comments: false
-                },
-                sourceMap: false
-            }
-         }),
         new webpack.ProvidePlugin({
             jQuery:'jquery',
             $: 'jquery',
@@ -107,3 +96,56 @@ module.exports={
         new ExtractTextPlugin('')
     ]
 };
+
+if (process.env.NODE_ENV === 'development') {//开发环境
+    module.exports.devtool = 'eval-source-map';
+    module.exports.plugins = (module.exports.plugins || []).concat([
+        new webpack.DefinePlugin({
+            ENV_PRO: JSON.stringify(false)
+        }),
+    ])
+}
+if (process.env.NODE_ENV === 'test') {//测试环境
+    module.exports.plugins = (module.exports.plugins || []).concat([
+        new webpack.DefinePlugin({
+            ENV_PRO: JSON.stringify(false)
+        }),
+        new UglifyJsPlugin({
+            uglifyOptions:{
+                compress: {
+                    warnings: false
+                },
+                output: {
+                    comments: false
+                },
+                sourceMap: false
+            }
+        }),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
+        })
+    ])
+}
+if (process.env.NODE_ENV === 'production') {//生产环境
+    module.exports.plugins = (module.exports.plugins || []).concat([
+        new webpack.DefinePlugin({
+            ENV_PRO: JSON.stringify(true)
+        }),
+        new UglifyJsPlugin({
+            uglifyOptions:{
+                compress: {
+                    warnings: false
+                },
+                output: {
+                    comments: false
+                },
+                sourceMap: false
+            }
+        }),
+        new webpack.LoaderOptionsPlugin({
+            minimize: true
+        })
+    ])
+}
+
+console.log("当前的环境："+process.env.NODE_ENV);
